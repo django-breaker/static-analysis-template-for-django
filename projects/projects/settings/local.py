@@ -1,0 +1,10 @@
+from .base import *
+
+
+ALLOWED_HOSTS = ['*']
+DEBUG = True
+
+PROJECT_PROFILE = 'LOCAL'
+PROJECT_VERSION = os.getenv('PROJECT_VERSION')
+
+DATABASES = {}

@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "projects"
+version = "0.1.0"
+description = "static analysis template for django with black, flake8, isort and pre-commit"
+authors = ["punkyoon <punkkid001@gmail.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = ">=3.6.1,<4.0"
+Django = "^3.1.2"
+python-dotenv = "^0.14.0"
+djangorestframework = "^3.12.1"
+django-cors-headers = "^3.5.0"
+arrow = "^0.16.0"
+
+[tool.poetry.dev-dependencies]
+black = "^20.8b1"
+isort = "^5.5.4"
+flake8 = "^3.8.4"
+pre-commit = "^2.7.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
