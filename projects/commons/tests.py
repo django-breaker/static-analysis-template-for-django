@@ -3,15 +3,16 @@ from django.test import SimpleTestCase
 
 from commons.utils import get_current_server_time_info, get_local_time_info
 
+
 class CommonsUtilTest(SimpleTestCase):
     def test_get_current_server_time_info(self):
-        '''
+        """
         {
             "formatted_datetime": "2020-10-06 17:57:37 +00:00",
             "timestamp": 1602007057696,
             "timezone": "UTC"
         }
-        '''
+        """
 
         result_1 = get_current_server_time_info()
         result_2 = get_current_server_time_info()
@@ -30,13 +31,13 @@ class CommonsUtilTest(SimpleTestCase):
         self.assertEqual(result_3['timezone'], settings.TIME_ZONE)
 
     def test_get_local_time_info(self):
-        '''
+        """
         {
             "formatted_datetime": "2020-10-06 17:57:37 +00:00",
             "timestamp": 1602008749885,
             "timezone": "Asia/Seoul"
         }
-        '''
+        """
 
         data_1 = {'timestamp': 1602008716170, 'timezone': 'Asia/Seoul'}
         data_2 = {'timestamp': 1602008716170, 'timezone': 'America/New York'}

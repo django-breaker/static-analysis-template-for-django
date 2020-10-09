@@ -6,7 +6,13 @@ from commons.utils import get_current_server_time_info, get_local_time_info
 from mocks.serializers import CreateMockRequestSerializer, TimeInfo
 
 
-class Index(mixins.ListModelMixin, mixins.CreateModelMixin, mixins.UpdateModelMixin, mixins.DestroyModelMixin, viewsets.GenericViewSet):
+class Index(
+    mixins.ListModelMixin,
+    mixins.CreateModelMixin,
+    mixins.UpdateModelMixin,
+    mixins.DestroyModelMixin,
+    viewsets.GenericViewSet,
+):
     lookup_field = '_id'
     lookup_value_regex = '[0-9]+'
 
@@ -39,11 +45,11 @@ class Index(mixins.ListModelMixin, mixins.CreateModelMixin, mixins.UpdateModelMi
     def destroy(self, request, _id=None, *args, **kwargs):
         return Response(status=status.HTTP_423_LOCKED)
 
-    @action(methods=('GET', ), detail=False)
+    @action(methods=('GET',), detail=False)
     def hello(self, request, *args, **kwargs):
         return Response({'hello': 'hello'})
 
-    @action(methods=('DELETE', ), detail=True)
+    @action(methods=('DELETE',), detail=True)
     def bye(self, request, _id=None, *args, **kwargs):
         # Show url param
         return Response({'_id': _id})

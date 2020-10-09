@@ -9,7 +9,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 ALLOWED_HOSTS = ()
 CORS_ORIGIN_WHITELIST = ()
-CORS_ALLOW_HEADERS = default_headers + ('X-PROJECTS-API-TOKEN', )
+CORS_ALLOW_HEADERS = default_headers + ('X-PROJECTS-API-TOKEN',)
 CSRF_COOKIE_HTTPONLY = True
 DEBUG = False
 SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
@@ -19,7 +19,10 @@ EXTERNAL_APPS = (
     'corsheaders',
     'rest_framework',
 )
-PROJECT_APPS = ('commons', 'projects',)
+PROJECT_APPS = (
+    'commons',
+    'projects',
+)
 INSTALLED_APPS = EXTERNAL_APPS + PROJECT_APPS
 
 MIDDLEWARE = (
@@ -54,14 +57,17 @@ STATIC_URL = '/static/'
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (),
-    'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.AllowAny', ),
+    'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.AllowAny',),
     'DEFAULT_PAGINATION_CLASS': None,
     'DEFAULT_RENDERER_CLASSES': ('rest_framework.renderers.JSONRenderer',),
     'DEFAULT_PARSER_CLASSES': (
         'rest_framework.parsers.JSONParser',
         'rest_framework.parsers.MultiPartParser',
-        'rest_framework.parsers.FileUploadParser'
+        'rest_framework.parsers.FileUploadParser',
     ),
     'DATETIME_FORMAT': '%s',
     'UNAUTHENTICATED_USER': None,
 }
+
+handler400 = 'rest_framework.exceptions.bad_request'
+handler500 = 'rest_framework.exceptions.server_error'

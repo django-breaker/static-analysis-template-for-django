@@ -1,8 +1,4 @@
-from django.urls import path
-
-
 from commons.url_routers import APIRouter
-
 from mocks import views
 
 

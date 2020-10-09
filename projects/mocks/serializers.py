@@ -1,9 +1,10 @@
+from datetime import datetime
 
 import arrow
-from datetime import datetime
 
 from django.utils.timezone import utc
 from rest_framework import serializers
+from rest_framework.exceptions import ValidationError
 
 
 class CreateMockRequestSerializer(serializers.Serializer):
@@ -22,7 +23,7 @@ class CreateMockRequestSerializer(serializers.Serializer):
         timestamp = attr['timestamp']
         try:
             datetime.utcfromtimestamp(int(timestamp) // 1000).astimezone(utc)
-        except ValueError as err:
+        except (ValueError, OSError) as err:
             raise ValidationError(f'Invalid timestamp: {err}')
 
         return attr
