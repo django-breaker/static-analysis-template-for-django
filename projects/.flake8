@@ -1,0 +1,20 @@
+[flake8]
+max-line-length = 120
+ignore = F403, F405, W503, E731
+exclude =
+    .git
+    __pycache__
+    setup.py
+    build
+    dist
+    releases
+    .venv
+    .tox
+    .mypy_cache
+    .pytest_cache
+    .vscode
+    .github
+    .git
+    migrations
+    static
+    templates

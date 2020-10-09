@@ -1,0 +1,19 @@
+repos:
+  - repo: https://github.com/psf/black
+    rev: 20.8b1
+    hooks:
+      - id: black
+
+  - repo: https://gitlab.com/pycqa/flake8
+    rev: 3.8.4
+    hooks:
+      - id: flake8
+        args: ['--ignore=F403,F405,W503,E731', '--max-line-length=120']
+        exclude: migrations/|static/|templates/
+
+  - repo: https://github.com/timothycrosley/isort
+    rev: 5.5.4
+    hooks:
+      - id: isort
+        additional_dependencies: [toml]
+        exclude: ^.*/?setup\.py$

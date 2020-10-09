@@ -18,7 +18,43 @@ black = "^20.8b1"
 isort = "^5.5.4"
 flake8 = "^3.8.4"
 pre-commit = "^2.7.1"
+colorama = "^0.4.3"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+color = true
+exclude = '''
+(
+  /(
+      \.eggs
+    | \.git
+    | \.hg
+    | \.mypy_cache
+    | \.tox
+    | \.venv
+    | build
+    | dist
+    | static
+    | templates
+  )/
+)
+'''
+include = '\.pyi?$'
+line-length = 120
+skip-string-normalization = true
+target-version = ['py36']
+
+[tool.isort]
+case_sensitive = true
+color_output = true
+default_section = "THIRDPARTY"
+known_first_party = "projects"
+include_trailing_comma = true
+lines_after_imports = 2
+lines_between_types = 1
+lines_between_sections=1
+line_length = 120
+multi_line_output = 3
